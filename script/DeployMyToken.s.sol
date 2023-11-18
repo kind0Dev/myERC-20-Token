@@ -9,9 +9,10 @@ import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 
 contract DeployMyToken is Script {
     uint256 public constant INITIAL_SUPPLY = 10000 ether;
-    function run() external {
+    function run() external returns (MyToken) {
         vm.startBroadcast();
         MyToken myToken = new MyToken(INITIAL_SUPPLY);
         vm.stopBroadcast();
+        return myToken;
     }
 }
